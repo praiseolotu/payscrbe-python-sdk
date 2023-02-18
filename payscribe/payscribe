@@ -1,3 +1,20 @@
-'''
-API collection
-'''
+import requests
+
+class Payscribe:
+	def __init__(self, key):
+		self.__key = key
+		
+	def data_lookup(network):
+		API_ENDPOINT = "https://www.payscribe.ng/api/lookup/data"
+		headers = {
+			'Authorization':'Bearer %s'%self.__key
+		}
+		if network.lower() == 'all':
+			data = {}
+			# data = {'network':}
+		if network.lower() == 'mtn' or network.lower() == 'airtel' or network.lower() == 'glo' or network.lower() == '9mobile': 
+			data = {'network':network}
+		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
+		print(response.text)
+		
+	
