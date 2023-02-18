@@ -4,7 +4,22 @@ class Payscribe:
 	def __init__(self, key):
 		self.__key = key
 		
+		'''
+			Instantiate HTTP fetch operations on the API endpoints
+			:params key : API test key
+			:type key: string
+		'''
+		
 	def data_lookup(network):
+		
+		'''
+			Lookup data plans
+			:params network : The network you want to check data plans for
+			:type network : string
+			:return : Data plans for each or all network
+			:rtype : string
+		'''
+		
 		API_ENDPOINT = "https://www.payscribe.ng/api/lookup/data"
 		headers = {
 			'Authorization':'Bearer %s'%self.__key
