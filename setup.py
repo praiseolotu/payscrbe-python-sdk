@@ -37,5 +37,5 @@ setup(
     ],
     packages=["payscribe"],
     include_package_data=True,
-    install_requires=["request"]
+    install_requires=["requests"]
 )
