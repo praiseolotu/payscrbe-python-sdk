@@ -32,4 +32,26 @@ class Payscribe:
 		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
 		print(response.text)
 		
-	
+	def vend_data(plans, recipient, network):
+		
+		'''
+			:params plan: Data plan of your choice
+			:type plans: string
+			:params recipient: Recipient's mobile number
+			:type recipient: string
+			:params network: Network provider of your choice
+			:type network: string
+			:return: 
+		'''
+		
+		API_ENDPOINT = "https://www.payscribe.ng/api/v1/data/vend"
+		headers = {
+			'Authorization':'Bearer %s'%self.__key
+		}
+		data = {
+			'plan':plans,
+			'recipient':recipient,
+			'network': network
+		}
+		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
+		print(response.text)
