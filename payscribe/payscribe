@@ -10,7 +10,7 @@ class Payscribe:
 			:type key: string
 		'''
 		
-	def data_lookup(network):
+	def data_lookup(self, network):
 		
 		'''
 			Lookup data plans
@@ -32,7 +32,7 @@ class Payscribe:
 		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
 		print(response.text)
 		
-	def vend_data(plans, recipient, network):
+	def vend_data(self, plans, recipient, network):
 		
 		'''
 			:params plan: Data plan of your choice
@@ -56,10 +56,10 @@ class Payscribe:
 		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
 		print(response.text)
 		
-	def recharge(qty, amount, display_name):
+	def recharge(self, qty, amount, display_name):
 		
 		'''
-			Get Recharge Card
+			Print Recharge Card pins
 			:params qty: Quantity of Recharge Card
 			:type qty: int
 			:params amount: Amount of Recharge Card
@@ -82,3 +82,5 @@ class Payscribe:
 		
 		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
 		print(response.text)
+	def getCardPins(self, trans_id):
+		pass
