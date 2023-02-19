@@ -55,3 +55,30 @@ class Payscribe:
 		}
 		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
 		print(response.text)
+		
+	def recharge(qty, amount, display_name):
+		
+		'''
+			Get Recharge Card
+			:params qty: Quantity of Recharge Card
+			:type qty: int
+			:params amount: Amount of Recharge Card
+			:type amount: int
+			:params display_name: Name of network provider
+			:return: 
+		'''
+		
+		API_ENDPOINT = "https://www.payscribe.ng/api/v1/rechargecard"
+		
+		headers = {
+			'Authorization':'Bearer %s'%self.__key
+		}
+		
+		data = {
+			'qty':qty,
+			'amount':amount,
+			'display_name': display_name
+		}
+		
+		response = requests.post(url=API_ENDPOINT, headers=headers, data=data)
+		print(response.text)
