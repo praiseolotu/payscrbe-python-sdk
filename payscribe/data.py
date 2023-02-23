@@ -1,3 +1,4 @@
+from payscribe import Payscribe
 
 class Data(Payscribe):
 	
