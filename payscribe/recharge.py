@@ -1,26 +1,27 @@
+from payscribe import Payscribe
 
-from Payscribe import Payscribe
-
-class Recharge(Payscribe):
+class Data(Payscribe):
 	
-	def recharge(self, qty, amount, display_name):
+	def dataLookup(self, network):
 		'''
-			Print Recharge Card pins
-			:params qty: Quantity of Recharge Card
-			:type qty: int
-			:params amount: Amount of Recharge Card
-			:type amount: int
-			:params display_name: Name of network provider
+			Lookup data plans
+			:params network : The network you want to check data plans for
+			:type network : string
+			:return : Data plans for each or all network
+			:rtype : string
+		'''
+		#pre = sender(path, network)
+		return self.sender('data/lookup', {'network': network})
+		
+	def vendData(self, plan, recipient, network):
+		'''
+			Vend data for a given plan, recipient and network
+			:params plan: Data plan of your choice
+			:type plans: string
+			:params recipient: Recipient's mobile number
+			:type recipient: string
+			:params network: Network provider of your choice
+			:type network: string
 			:return: 
 		'''
-		return self.sender('rechargecard', {'qty': qty, 'amount':amount, 'display_name':display_name})
-		
-	def getCardPins(self, trans_id):
-		'''
-			Fetch Generated Recharge Card Pin
-			:params trans_id: Transaction id used to fetch generated recharge pins
-			:type trans_id: string
-			:rtype: 
-		'''
-		return self.get_sender('cards', {'trans_id':trans_id})
-		
+		return self.sender('data/vend', {'plan': plan, 'recipient':recipient, 'network':network})
