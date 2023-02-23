@@ -1,4 +1,3 @@
-
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
 
@@ -20,9 +19,10 @@ setup(
     description="Python API Wrapper for PayScribe APIs",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="-",
+    url="https://github.com/praiseolotu/payscrbe-python-sdk",
     author="Olotu Praise Jah",
     author_email="olioxxayo@gmail.com",
+	keywords='payscribe python library',
     license="MIT",
     classifiers=[
         "Intended Audience :: Developers",
@@ -35,7 +35,8 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent"
     ],
-    packages=["payscribe"],
+    #packages=["payscribe"],
+	packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     include_package_data=True,
-    install_requires=["requests"]
+    install_requires=['requests', 'simplejson', 'blinker', 'six', 'pytz' ],
 )
