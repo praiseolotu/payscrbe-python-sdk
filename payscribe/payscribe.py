@@ -59,7 +59,7 @@ class Payscribe:
 		'''
 		url = self.api(path)
 		try:
-			response = requests.get(url=url, headers=headers, params={'trans_id':trans_id}, timeout=(3, 5))
+			response = requests.get(url=url, headers=headers, data=data, timeout=(3, 5))
 			response.raise_for_status()
 		except HTTPError as http_err:
 			print(f'HTTP error: {http_err}')
@@ -69,5 +69,5 @@ class Payscribe:
 			print(f'Other error occured: {err}')
 		else:
 			return response.json()
-			
+	
 	
